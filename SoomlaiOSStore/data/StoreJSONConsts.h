@@ -1,4 +1,5 @@
 /*
+ Copyright (C) 2015 Philipp Maevskiy
  Copyright (C) 2012-2014 Soomla Inc.
  
  Licensed under the Apache License, Version 2.0 (the "License");
@@ -28,6 +29,7 @@ extern NSString *const JSON_STORE_GOODS_PA;
 extern NSString *const JSON_STORE_GOODS_UP;
 extern NSString *const JSON_STORE_GOODS_LT;
 extern NSString *const JSON_STORE_GOODS_EQ;
+extern NSString *const JSON_STORE_GOODS_IB;
 
 extern NSString *const JSON_CATEGORY_NAME;
 extern NSString *const JSON_CATEGORY_GOODSITEMIDS;
@@ -71,4 +73,7 @@ extern NSString *const JSON_PURCHASE_VI_AMOUNT;
 // VIR = VirtualItemReward
 extern NSString *const VIR_ASSOCITEMID;
 extern NSString *const VIR_AMOUNT;
+
+//VIB = VirtualItemBundle
+extern NSString *const VIB_ITEMS_ARRAY;
 

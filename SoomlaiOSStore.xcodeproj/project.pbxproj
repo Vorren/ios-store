@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2939E2B51AC92341001C335F /* PurchaseWithVirtualItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 2939E2B41AC92341001C335F /* PurchaseWithVirtualItems.m */; };
 		2939E2B71AC9235A001C335F /* PurchaseWithVirtualItems.h in Headers */ = {isa = PBXBuildFile; fileRef = 2939E2B61AC9235A001C335F /* PurchaseWithVirtualItems.h */; };
+		2939E2C01AC94694001C335F /* VirtualItemBundle.h in Headers */ = {isa = PBXBuildFile; fileRef = 2939E2BE1AC94694001C335F /* VirtualItemBundle.h */; };
+		2939E2C11AC94694001C335F /* VirtualItemBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2939E2BF1AC94694001C335F /* VirtualItemBundle.m */; };
 		C018B64F16105F77000FE817 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C018B47B160F5B23000FE817 /* CoreFoundation.framework */; };
 		C024137F176F2512007BB351 /* StoreJSONConsts.m in Sources */ = {isa = PBXBuildFile; fileRef = C024132B176F2512007BB351 /* StoreJSONConsts.m */; };
 		C024138E176F2512007BB351 /* StorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0241335176F2512007BB351 /* StorageManager.m */; };
@@ -97,6 +99,8 @@
 /* Begin PBXFileReference section */
 		2939E2B41AC92341001C335F /* PurchaseWithVirtualItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseWithVirtualItems.m; sourceTree = "<group>"; };
 		2939E2B61AC9235A001C335F /* PurchaseWithVirtualItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseWithVirtualItems.h; sourceTree = "<group>"; };
+		2939E2BE1AC94694001C335F /* VirtualItemBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VirtualItemBundle.h; sourceTree = "<group>"; };
+		2939E2BF1AC94694001C335F /* VirtualItemBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VirtualItemBundle.m; sourceTree = "<group>"; };
 		C018B47B160F5B23000FE817 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		C024132A176F2512007BB351 /* StoreJSONConsts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreJSONConsts.h; sourceTree = "<group>"; };
 		C024132B176F2512007BB351 /* StoreJSONConsts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreJSONConsts.m; sourceTree = "<group>"; };
@@ -241,6 +245,8 @@
 				C0241350176F2512007BB351 /* virtualGoods */,
 				C024135D176F2512007BB351 /* VirtualItem.h */,
 				C024135E176F2512007BB351 /* VirtualItem.m */,
+				2939E2BE1AC94694001C335F /* VirtualItemBundle.h */,
+				2939E2BF1AC94694001C335F /* VirtualItemBundle.m */,
 			);
 			path = domain;
 			sourceTree = "<group>";
@@ -390,6 +396,7 @@
 				C097628F18FBF2C5000A4403 /* UpgradeVG.h in Headers */,
 				C097629718FBF2D9000A4403 /* StorageManager.h in Headers */,
 				C097628D18FBF2C5000A4403 /* SingleUsePackVG.h in Headers */,
+				2939E2C01AC94694001C335F /* VirtualItemBundle.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +515,7 @@
 				EF4CDD30194F20C7008B1CF2 /* VirtualItemReward.m in Sources */,
 				C02413E7176F2512007BB351 /* StoreConfig.m in Sources */,
 				C02413EA176F2512007BB351 /* SoomlaStore.m in Sources */,
+				2939E2C11AC94694001C335F /* VirtualItemBundle.m in Sources */,
 				C02413ED176F2512007BB351 /* StoreInventory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

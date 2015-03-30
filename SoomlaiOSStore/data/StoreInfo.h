@@ -1,4 +1,5 @@
 /*
+ Copyright (C) 2015 Philipp Maevskiy
  Copyright (C) 2012-2014 Soomla Inc.
  
  Licensed under the Apache License, Version 2.0 (the "License");
@@ -26,6 +27,7 @@
 @class VirtualItem;
 @class PurchasableVirtualItem;
 @class UpgradeVG;
+@class VirtualItemBundle;
 
 /**
  This class holds the store's metadata including:
@@ -46,12 +48,14 @@
     NSMutableArray* virtualGoods;
     NSMutableArray* virtualCurrencyPacks;
     NSMutableArray* virtualCategories;
+    NSMutableArray* virtualItemBundles;
 }
 
 @property (nonatomic, retain) NSMutableArray* virtualCurrencies;
 @property (nonatomic, retain) NSMutableArray* virtualGoods;
 @property (nonatomic, retain) NSMutableArray* virtualCurrencyPacks;
 @property (nonatomic, retain) NSMutableArray* virtualCategories;
+@property (nonatomic, retain) NSMutableArray* virtualItemBundles;
 @property (nonatomic, retain) NSMutableDictionary* virtualItems;
 @property (nonatomic, retain) NSMutableDictionary* purchasableItems;
 @property (nonatomic, retain) NSMutableDictionary* goodsCategories;

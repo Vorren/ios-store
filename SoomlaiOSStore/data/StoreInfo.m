@@ -1,4 +1,5 @@
 /*
+ Copyright (C) 2015 Philipp Maevskiy
  Copyright (C) 2012-2014 Soomla Inc.
  
  Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,6 +23,7 @@
 #import "VirtualGood.h"
 #import "VirtualCurrency.h"
 #import "VirtualCurrencyPack.h"
+#import "VirtualItemBundle.h"
 #import "VirtualItemNotFoundException.h"
 #import "MarketItem.h"
 #import "SoomlaUtils.h"
@@ -38,7 +40,7 @@
 
 @implementation StoreInfo
 
-@synthesize virtualCategories, virtualCurrencies, virtualCurrencyPacks, virtualGoods, virtualItems, purchasableItems, goodsCategories, goodsUpgrades;
+@synthesize virtualCategories, virtualCurrencies, virtualCurrencyPacks, virtualGoods, virtualItems, purchasableItems, goodsCategories, goodsUpgrades, virtualItemBundles;
 
 static NSString* TAG = @"SOOMLA StoreInfo";
 static int currentAssetsVersion = 0;
@@ -160,6 +162,7 @@ static BOOL nonConsumableMigrationNeeded = NO;
         }
         [self.virtualGoods addObject:virtualItem];
     }
+
 }
 
 - (void)privInitializeWithIStoreAssets:(id)storeAssets {
@@ -169,7 +172,8 @@ static BOOL nonConsumableMigrationNeeded = NO;
     self.virtualCurrencies = [NSMutableArray arrayWithArray:[storeAssets virtualCurrencies]];
     self.virtualCurrencyPacks = [NSMutableArray arrayWithArray:[storeAssets virtualCurrencyPacks]];
     self.virtualCategories = [NSMutableArray arrayWithArray:[storeAssets virtualCategories]];
-    
+    self.virtualItemBundles = [NSMutableArray arrayWithArray:[storeAssets virtualItemBundles]];
+
     self.virtualItems = [NSMutableDictionary dictionary];
     self.purchasableItems = [NSMutableDictionary dictionary];
     self.goodsCategories = [NSMutableDictionary dictionary];
@@ -273,13 +277,14 @@ static BOOL nonConsumableMigrationNeeded = NO;
             [self checkAndAddPurchasable:o];
         }
         
-        
         NSDictionary* goodsDict = [storeInfo objectForKey:JSON_STORE_GOODS];
         NSArray* suGoods = [goodsDict objectForKey:JSON_STORE_GOODS_SU];
         NSArray* ltGoods = [goodsDict objectForKey:JSON_STORE_GOODS_LT];
         NSArray* eqGoods = [goodsDict objectForKey:JSON_STORE_GOODS_EQ];
         NSArray* upGoods = [goodsDict objectForKey:JSON_STORE_GOODS_UP];
         NSArray* paGoods = [goodsDict objectForKey:JSON_STORE_GOODS_PA];
+        NSArray* ibGoods = [goodsDict objectForKey:JSON_STORE_GOODS_IB];
+
         self.virtualGoods = [[NSMutableArray alloc] init];
         for(NSDictionary* gDict in suGoods){
             SingleUseVG* g = [[SingleUseVG alloc] initWithDictionary: gDict];
@@ -319,6 +324,12 @@ static BOOL nonConsumableMigrationNeeded = NO;
             for(NSString* goodItemId in c.goodsItemIds) {
                 [self.goodsCategories setObject:c forKey:goodItemId];
             }
+        }
+
+        self.virtualItemBundles = [NSMutableArray array];
+        for(NSDictionary * gDict in ibGoods){
+            VirtualItemBundle * bundle = [[VirtualItemBundle alloc] initWithDictionary: gDict];
+            [self.virtualItemBundles addObject:bundle];
         }
         
         // everything went well... StoreInfo is initialized from the local DB.
@@ -372,6 +383,8 @@ static BOOL nonConsumableMigrationNeeded = NO;
     NSMutableArray* eqGoods = [NSMutableArray array];
     NSMutableArray* upGoods = [NSMutableArray array];
     NSMutableArray* paGoods = [NSMutableArray array];
+    NSMutableArray* ibGoods = [NSMutableArray array];
+
     for(VirtualGood* g in self.virtualGoods){
         if ([g isKindOfClass:[SingleUseVG class]]) {
             [suGoods addObject:[g toDictionary]];
@@ -383,6 +396,8 @@ static BOOL nonConsumableMigrationNeeded = NO;
             [paGoods addObject:[g toDictionary]];
         } else if ([g isKindOfClass:[LifetimeVG class]]) {
             [ltGoods addObject:[g toDictionary]];
+        } else if ( [ibGoods isKindOfClass:[VirtualItemBundle class]] ){
+            [ibGoods addObject: [g toDictionary]];
         }
     }
     NSDictionary* goods = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -390,7 +405,9 @@ static BOOL nonConsumableMigrationNeeded = NO;
                            ltGoods, JSON_STORE_GOODS_LT,
                            eqGoods, JSON_STORE_GOODS_EQ,
                            upGoods, JSON_STORE_GOODS_UP,
-                           paGoods, JSON_STORE_GOODS_PA, nil];
+                           paGoods, JSON_STORE_GOODS_PA,
+                           ibGoods, JSON_STORE_GOODS_IB,
+                           nil];
     
     NSMutableArray* categories = [NSMutableArray array];
     for(VirtualCategory* c in self.virtualCategories){

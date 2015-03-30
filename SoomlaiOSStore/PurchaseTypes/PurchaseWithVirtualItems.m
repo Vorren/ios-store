@@ -75,7 +75,7 @@ static NSString* TAG = @"SOOMLA PurchaseWithVirtualItems";
         assert(storage);
 
         int balance = [storage balanceForItem:item.itemId];
-        if (balance < [amount integerValue]) {
+        if (balance < [amount intValue]) {
             @throw [[InsufficientFundsException alloc] initWithItemId:itemId];
         }
 
