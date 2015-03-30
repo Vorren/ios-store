@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2939E2B51AC92341001C335F /* PurchaseWithVirtualItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 2939E2B41AC92341001C335F /* PurchaseWithVirtualItems.m */; };
+		2939E2B71AC9235A001C335F /* PurchaseWithVirtualItems.h in Headers */ = {isa = PBXBuildFile; fileRef = 2939E2B61AC9235A001C335F /* PurchaseWithVirtualItems.h */; };
 		C018B64F16105F77000FE817 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C018B47B160F5B23000FE817 /* CoreFoundation.framework */; };
 		C024137F176F2512007BB351 /* StoreJSONConsts.m in Sources */ = {isa = PBXBuildFile; fileRef = C024132B176F2512007BB351 /* StoreJSONConsts.m */; };
 		C024138E176F2512007BB351 /* StorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0241335176F2512007BB351 /* StorageManager.m */; };
@@ -93,6 +95,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2939E2B41AC92341001C335F /* PurchaseWithVirtualItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseWithVirtualItems.m; sourceTree = "<group>"; };
+		2939E2B61AC9235A001C335F /* PurchaseWithVirtualItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseWithVirtualItems.h; sourceTree = "<group>"; };
 		C018B47B160F5B23000FE817 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		C024132A176F2512007BB351 /* StoreJSONConsts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreJSONConsts.h; sourceTree = "<group>"; };
 		C024132B176F2512007BB351 /* StoreJSONConsts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreJSONConsts.m; sourceTree = "<group>"; };
@@ -293,6 +297,8 @@
 				C0241372176F2512007BB351 /* PurchaseWithMarket.m */,
 				C0241373176F2512007BB351 /* PurchaseWithVirtualItem.h */,
 				C0241374176F2512007BB351 /* PurchaseWithVirtualItem.m */,
+				2939E2B61AC9235A001C335F /* PurchaseWithVirtualItems.h */,
+				2939E2B41AC92341001C335F /* PurchaseWithVirtualItems.m */,
 			);
 			path = PurchaseTypes;
 			sourceTree = "<group>";
@@ -368,6 +374,7 @@
 				C097629018FBF2C5000A4403 /* VirtualGood.h in Headers */,
 				C097628418FBF292000A4403 /* VirtualItemNotFoundException.h in Headers */,
 				C097629118FBF2C5000A4403 /* VirtualItem.h in Headers */,
+				2939E2B71AC9235A001C335F /* PurchaseWithVirtualItems.h in Headers */,
 				C097627518FBF277000A4403 /* StoreEventHandling.h in Headers */,
 				C097628318FBF292000A4403 /* NotEnoughGoodsException.h in Headers */,
 				C097628918FBF2C5000A4403 /* VirtualCurrency.h in Headers */,
@@ -487,6 +494,7 @@
 				C02413BB176F2512007BB351 /* SingleUsePackVG.m in Sources */,
 				C02413BE176F2512007BB351 /* SingleUseVG.m in Sources */,
 				C02413C1176F2512007BB351 /* UpgradeVG.m in Sources */,
+				2939E2B51AC92341001C335F /* PurchaseWithVirtualItems.m in Sources */,
 				C02413C4176F2512007BB351 /* VirtualGood.m in Sources */,
 				C02413C7176F2512007BB351 /* VirtualItem.m in Sources */,
 				C02413CA176F2512007BB351 /* StoreEventHandling.m in Sources */,
