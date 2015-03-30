@@ -330,6 +330,7 @@ static BOOL nonConsumableMigrationNeeded = NO;
         for(NSDictionary * gDict in ibGoods){
             VirtualItemBundle * bundle = [[VirtualItemBundle alloc] initWithDictionary: gDict];
             [self.virtualItemBundles addObject:bundle];
+            [self addVirtualGood: bundle];
         }
         
         // everything went well... StoreInfo is initialized from the local DB.
